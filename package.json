@@ -1,8 +1,8 @@
 {
-  "name": "mern-skeleton",
-  "version": "2.0.0",
-  "description": "A MERN stack skeleton web application",
-  "author": "Shama Hoque",
+  "name": "multiply",
+  "version": "1.0.0",
+  "description": "A small login app",
+  "author": "H.A.K(Haroon)",
   "license": "MIT",
   "keywords": [
     "react",
@@ -15,7 +15,6 @@
     "type": "git",
     "url": "https://github.com/shamahoque/mern-skeleton.git"
   },
-  "homepage": "https://github.com/shamahoque/mern-skeleton",
   "main": "./dist/server.generated.js",
   "scripts": {
     "development": "nodemon",
@@ -49,6 +48,7 @@
     "cors": "2.8.5",
     "express": "4.17.1",
     "express-jwt": "5.3.1",
+    "formidable": "1.2.2",
     "helmet": "3.22.0",
     "jsonwebtoken": "8.5.1",
     "lodash": "4.17.15",
