@@ -10,8 +10,8 @@ developed using React, Node, Express and MongoDB.
 
 #### How to run this code
 
-1. Make sure MongoDB is running on your system or add a atlas cluster link in the config.js
-2. Optional: ustommise the secret key for jwt for aa more secuure enryption
+1. Make sure MongoDB is running on your system or add a atlas cluster link in the config.js. The config has my atlas cluster link and you can use that for testing unless you want to use your own.
+2. Optional: customise the secret key for jwt token, for a more secuure encryption
 3. Clone this repository
 4. Open command line in the cloned folder,
    - To install dependencies, run `npm install` or `yarn`
