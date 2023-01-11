@@ -10,6 +10,7 @@ import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
 import feedbackRoutes from "./routes/feedback.routes";
 import categoriesRoutes from "./routes/categories.routes";
+import carRoutes from "./routes/cars.routes";
 
 // modules for server side rendering
 import React from "react";
@@ -47,6 +48,7 @@ app.use("/", userRoutes);
 app.use("/", feedbackRoutes);
 app.use("/", authRoutes);
 app.use("/", categoriesRoutes);
+app.use("/", carRoutes);
 
 app.get("*", (req, res) => {
   const sheets = new ServerStyleSheets();
