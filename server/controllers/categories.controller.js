@@ -1,31 +1,21 @@
-import Category from "../models/shop.model";
+import Category from "../models/category.model";
 import extend from "lodash/extend";
-// import errorHandler from './../helpers/dbErrorHandler'
-import formidable from "formidable";
 
-const create = (req, res) => {
-//   let form = new formidable.IncomingForm();
-//   form.keepExtensions = true;
-//   form.parse(req, async (err, fields, files) => {
-//     let category = new Category(fields);
-//     category.owner = req.profile;
-//     try {
-//       let result = await category.save();
-//       res.status(200).json(result);
-//     } catch (err) {
-//       return res.status(400).json({
-//         error: err,
-//       });
-//     }
-//   });
- console.log('cat create req.body', req.body)
+const create = async (req, res) => {
+  try {
+    let category = new Category(req.body);
+    let result = await category.save();
+    res.status(200).json(result);
+  } catch (err) {
+    return res.status(400).json({
+      error: err,
+    });
+  }
 };
 
 const categoryByID = async (req, res, next, id) => {
   try {
-    let category = await Category.findById(id)
-      .populate("owner", "_id name")
-      .exec();
+    let category = await Category.findById(id);
     if (!category)
       return res.status("400").json({
         error: "category not found",
@@ -43,22 +33,18 @@ const read = (req, res) => {
   return res.json(req.category);
 };
 
-const update = (req, res) => {
-  let form = new formidable.IncomingForm();
-  form.keepExtensions = true;
-  form.parse(req, async (err, fields, files) => {
-    let category = req.category;
-    category = extend(category, fields);
-    category.updated = Date.now();
-    try {
-      let result = await category.save();
-      res.json(result);
-    } catch (err) {
-      return res.status(400).json({
-        error: err,
-      });
-    }
-  });
+const update = async (req, res) => {
+  let category = req.category;
+  category = extend(category, req.body);
+  category.updated = Date.now();
+  try {
+    let result = await category.save();
+    res.json(result);
+  } catch (err) {
+    return res.status(400).json({
+      error: err,
+    });
+  }
 };
 
 const remove = async (req, res) => {
@@ -75,7 +61,7 @@ const remove = async (req, res) => {
 
 const list = async (req, res) => {
   try {
-    let categories = await category.find();
+    let categories = await Category.find();
     res.json(categories);
   } catch (err) {
     return res.status(400).json({

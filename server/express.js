@@ -9,6 +9,7 @@ import Template from "./../template";
 import userRoutes from "./routes/user.routes";
 import authRoutes from "./routes/auth.routes";
 import feedbackRoutes from "./routes/feedback.routes";
+import categoriesRoutes from "./routes/categories.routes";
 
 // modules for server side rendering
 import React from "react";
@@ -45,6 +46,7 @@ app.use("/dist", express.static(path.join(CURRENT_WORKING_DIR, "dist")));
 app.use("/", userRoutes);
 app.use("/", feedbackRoutes);
 app.use("/", authRoutes);
+app.use("/", categoriesRoutes);
 
 app.get("*", (req, res) => {
   const sheets = new ServerStyleSheets();

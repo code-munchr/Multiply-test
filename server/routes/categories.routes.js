@@ -5,8 +5,8 @@ const router = express.Router();
 
 router
   .route("/api/categories")
-  .get(categoryCtrl.list)
-  .post(categoryCtrl.create);
+  .post(categoryCtrl.create)
+  .get(categoryCtrl.list);
 
 router
   .route("/api/categories/:categoryId")
